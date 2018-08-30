@@ -48,7 +48,8 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 let g:deoplete#enable_at_startup = 1
 
 " General VIM
-set clipboard=unnamed
+" set clipboard=unnamed
+set clipboard=unnamedplus
 set number
 syntax enable
 set ts=2
@@ -128,7 +129,7 @@ set term=screen-256color
 hi QuickFixLine term=reverse ctermbg=52
 
 " statusline
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Always show statusline
 set laststatus=2
@@ -140,3 +141,23 @@ set t_Co=256
 " autocomplete
 filetype plugin on
 setlocal omnifunc=go#complete#Complete
+
+" WSL yank support
+" let s:clip = '/mnt/c/Windows/System32/clip.exe'  " default location
+" if executable(s:clip)
+"   augroup WSLYank
+"     autocmd!
+"     autocmd TextYankPost * call system('echo
+"     '.shellescape(join(v:event.regcontents, "\<CR>")).' |
+"     '.s:clip)
+"   augroup END
+" end
+
+func! GetSelectedText()
+  normal gv"xy
+  let result = getreg("x")
+  return result
+endfunc
+
+noremap <C-C> :call system('clip.exe', GetSelectedText())<CR>
+noremap <C-X> :call system('clip.exe', GetSelectedText())<CR>gvx

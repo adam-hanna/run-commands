@@ -192,3 +192,6 @@ done
 
 # Github token
 . ~/.gren_token.sh
+
+# WSL Clipboard
+DISPLAY=localhost:0.0

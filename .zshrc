@@ -173,3 +173,8 @@ done
 # syntax highlighting
 # Note, this must appear at the end
 source /tmp/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# WSL Clipboard
+DISPLAY=localhost:0.0
+
+if [ -e /usr/bin/vimx ]; then alias vim='/usr/bin/vimx'; fi
