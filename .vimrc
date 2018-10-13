@@ -16,10 +16,10 @@ endif
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 "Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-"Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 "Plug 'SirVer/ultisnips'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -28,6 +28,8 @@ Plug 'wikitopian/hardmode'
 " Plug 'vim-airline/vim-airline'
 
 call plug#end()
+
+let g:go_version_warning=0
 
 " neocomplete like
 set completeopt+=noinsert
@@ -44,8 +46,6 @@ let g:deoplete#enable_at_startup = 1
 " deoplete-go settings
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
-let g:deoplete#enable_at_startup = 1
 
 " General VIM
 " set clipboard=unnamed
